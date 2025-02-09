@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function animate() {
         requestAnimationFrame(animate);
-        sphere.rotation.x += 0.01;
+        sphere.rotation.x += 0.005;
         sphere.rotation.y += 0.01;
         renderer.render(scene, camera);
     }

@@ -1,59 +1,118 @@
+html {
+    scroll-behavior: smooth;
+}
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     color: white;
     text-align: center;
-    overflow: hidden;
-}
-nav {
+    overflow-x: hidden;
+  }
+  
+  nav {
     position: fixed;
     top: 0;
     width: 100%;
     background: rgba(0, 0, 0, 0.8);
     padding: 15px 0;
     z-index: 10;
-}
-nav ul {
+  }
+  
+  nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
     justify-content: center;
     gap: 20px;
-}
-nav ul li {
+  }
+  
+  nav ul li {
     display: inline;
-}
-nav ul li a {
+  }
+  
+  nav ul li a {
     color: white;
     text-decoration: none;
     font-size: 18px;
     padding: 10px 20px;
     transition: background 0.3s;
-}
-nav ul li a:hover {
+  }
+  
+  nav ul li a:hover {
     background: rgba(255, 255, 255, 0.3);
     border-radius: 5px;
-}
-#canvas-container {
+  }
+  
+  /* The Three.js canvas is positioned behind everything */
+  #canvas-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: -1;
-}
-main {
+    /* Ensure smooth parallax transitions */
+    transition: transform 0.1s;
+  }
+  
+  main {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-} 
-h1 {
+    /* Ensure sections take at least full viewport height */
+    min-height: 100vh;
+    padding-top: 80px; /* to account for the fixed navbar */
+    
+    position: relative;
+    z-index: 1;
+  }
+  
+  h1 {
     font-size: 4em;
     margin-top: 60px;
-}
-section {
+  }
+  
+  section {
     margin-top: 50px;
-}
+    width: 100%;
+    padding: 5%;
+  }
+  
+  #cv h2 {
+    margin-top: 9%;
+  }
+
+  #projects h2 {
+    margin-top: 15%;
+  }
+  #projects h3 {
+    margin-top: 5%;
+  }
+  #description {
+    width: 60%;
+    margin: 0 auto;
+    text-align: left;
+  }
+  
+  /* The overlay covers the viewport and fades to black */
+  #overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0;
+    pointer-events: none;  /* so it doesn't interfere with clicking links */
+    transition: opacity 1s ease;
+    z-index: 0;  /* between canvas (-1) and content (1) */
+  }
+  
+  /* Class to fade in the overlay */
+  #overlay.visible {
+    opacity: 1;
+  }
+  
+  

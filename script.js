@@ -6,8 +6,27 @@ document.addEventListener("DOMContentLoaded", function() {
     renderer.setSize(window.innerWidth, window.innerHeight);
     container.appendChild(renderer.domElement);
 
+    const clock = new THREE.Clock();
+
+    const vertexShader = `
+        uniform float time;
+        varying vec3 vNormal;
+        void main() {
+            vNormal = normalize(normalMatrix * normal);
+            vec3 newPosition = position + normal * sin(position.x * 5.0 + time) * 0.2;
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
+        }
+    `;
+
+    const material = new THREE.ShaderMaterial({
+        vertexShader,
+        uniforms: {
+            time: { value: 0.0 }
+        },
+        wireframe: true
+    });
+
     const geometry = new THREE.SphereGeometry(5, 32, 32);
-    const material = new THREE.MeshBasicMaterial({ color: 0x0077ff, wireframe: true });
     const sphere = new THREE.Mesh(geometry, material);
     scene.add(sphere);
 
@@ -15,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function animate() {
         requestAnimationFrame(animate);
+        material.uniforms.time.value = clock.getElapsedTime();
         sphere.rotation.x += 0.01;
         sphere.rotation.y += 0.01;
         renderer.render(scene, camera);

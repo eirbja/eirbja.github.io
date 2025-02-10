@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
             gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
         }
     `;
-
+ 
     const material = new THREE.ShaderMaterial({
         vertexShader,
         uniforms: {

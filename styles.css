@@ -1,7 +1,10 @@
+/* Smooth scrolling behavior for in-page links */
 html {
     scroll-behavior: smooth;
-}
-body {
+  }
+  
+  /* Base styles for the document */
+  body {
     margin: 0;
     font-family: Arial, sans-serif;
     color: white;
@@ -9,12 +12,16 @@ body {
     overflow-x: hidden;
   }
   
+  /* =========================
+     Navigation (Header) Styles
+     ========================= */
   nav {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    padding: 15px 0;
+    /* Use relative vertical padding */
+    padding: 2vh 0;
+    background: rgba(0, 0, 0, 1);
     z-index: 10;
   }
   
@@ -22,9 +29,10 @@ body {
     list-style: none;
     padding: 0;
     margin: 0;
+    /* Flexbox centers the nav items horizontally */
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 2vw; /* Gap relative to viewport width */
   }
   
   nav ul li {
@@ -34,17 +42,21 @@ body {
   nav ul li a {
     color: white;
     text-decoration: none;
-    font-size: 18px;
-    padding: 10px 20px;
+    /* Font size relative to viewport height (or adjust with rem if you prefer) */
+    font-size: 2.5vh;
+    padding: 1vh 2vw;
     transition: background 0.3s;
   }
   
   nav ul li a:hover {
     background: rgba(255, 255, 255, 0.3);
-    border-radius: 5px;
+    /* Border-radius using a viewport unit */
+    border-radius: 0.5vh;
   }
   
-  /* The Three.js canvas is positioned behind everything */
+  /* =========================
+     Three.js Canvas Background
+     ========================= */
   #canvas-container {
     position: fixed;
     top: 0;
@@ -52,51 +64,86 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1;
-    /* Ensure smooth parallax transitions */
     transition: transform 0.1s;
   }
   
+  /* =========================
+     Main Content Container
+     ========================= */
+  /* 
+     The main element is set to fill the viewport height and uses flexbox 
+     to center its children both vertically and horizontally.
+  */
   main {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* Ensure sections take at least full viewport height */
     min-height: 100vh;
-    padding-top: 80px; /* to account for the fixed navbar */
-    
     position: relative;
     z-index: 1;
   }
   
+  /* 
+     For the landing section (the very first section), we ensure it takes up the 
+     full viewport height so that your name is always centered on the screen.
+  */
+  section:first-of-type {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 87vh;
+  }
+  
+  /* =========================
+     Headings & Section Styling
+     ========================= */
+  /* 
+     h1 is set using a viewport-based font size so it scales with the screen.
+     All default margin is removed so that flexbox can center it exactly.
+  */
   h1 {
-    font-size: 4em;
-    margin-top: 60px;
+    font-size: 50px; /* Adjust this value as needed */
+    margin: 0;
   }
   
+  /* 
+     Each section uses percentage-based widths and vertical spacing,
+     ensuring a responsive layout.
+  */
   section {
-    margin-top: 50px;
-    width: 100%;
-    padding: 5%;
+    margin-top: 5vh;
+    width: 90%;
+    padding: 0 5%;
   }
   
-  #cv h2 {
-    margin-top: 9%;
+  /* Spacing adjustments for CV and Projects headings */
+  #cv h2{
+    margin-top: vh;
   }
-
   #projects h2 {
-    margin-top: 15%;
+    margin-top: 15vh;
   }
+  
   #projects h3 {
-    margin-top: 5%;
+    margin-top: 2.5vh;
   }
+  
+  /* 
+     The description container is set to take the full width but is limited
+     by a max-width (relative to the viewport) for better readability.
+  */
   #description {
-    width: 60%;
+    width: 70%;
+    max-width: 90vw;
     margin: 0 auto;
     text-align: left;
   }
   
-  /* The overlay covers the viewport and fades to black */
+  /* =========================
+     Overlay for Background Fade
+     ========================= */
   #overlay {
     position: fixed;
     top: 0;
@@ -105,14 +152,12 @@ body {
     height: 100%;
     background: black;
     opacity: 0;
-    pointer-events: none;  /* so it doesn't interfere with clicking links */
+    pointer-events: none; /* Allows clicks to pass through */
     transition: opacity 1s ease;
-    z-index: 0;  /* between canvas (-1) and content (1) */
+    z-index: 0;
   }
   
-  /* Class to fade in the overlay */
   #overlay.visible {
     opacity: 1;
   }
-  
   

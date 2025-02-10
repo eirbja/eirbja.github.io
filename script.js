@@ -6,21 +6,8 @@ document.addEventListener("DOMContentLoaded", function() {
     renderer.setSize(window.innerWidth, window.innerHeight);
     container.appendChild(renderer.domElement);
 
-    const vertexShader = `
-        varying vec3 vNormal;
-        void main() {
-            vNormal = normalize(normalMatrix * normal);
-            vec3 newPosition = position + normal * sin(position.x) * 0.2;
-            gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
-        }
-    `;
-
-    const material = new THREE.ShaderMaterial({
-        vertexShader,
-        wireframe: true
-    });
-
     const geometry = new THREE.SphereGeometry(5, 32, 32);
+    const material = new THREE.MeshBasicMaterial({ color: 0x0077ff, wireframe: true });
     const sphere = new THREE.Mesh(geometry, material);
     scene.add(sphere);
 

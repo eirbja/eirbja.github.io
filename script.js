@@ -6,30 +6,21 @@ document.addEventListener("DOMContentLoaded", function() {
     renderer.setSize(window.innerWidth, window.innerHeight);
     container.appendChild(renderer.domElement);
 
-    const geometry = new THREE.SphereGeometry(5, 32, 32);
     const vertexShader = `
-        varying vec2 vUv;
+        varying vec3 vNormal;
         void main() {
-            vUv = uv;
-            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+            vNormal = normalize(normalMatrix * normal);
+            vec3 newPosition = position + normal * sin(position.x) * 0.2;
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
         }
     `;
-    const fragmentShader = `
-        varying vec2 vUv;
-        uniform sampler2D texture;
-        void main() {
-            gl_FragColor = texture2D(texture, vUv);
-        }
-    `;
-    const texture = new THREE.TextureLoader().load('https://threejs.org/examples/textures/earth_atmos_2048.jpg');
+
     const material = new THREE.ShaderMaterial({
-        uniforms: {
-            texture: { value: texture }
-        },
         vertexShader,
-        fragmentShader
+        wireframe: true
     });
-    
+
+    const geometry = new THREE.SphereGeometry(5, 32, 32);
     const sphere = new THREE.Mesh(geometry, material);
     scene.add(sphere);
 

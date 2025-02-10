@@ -7,16 +7,29 @@ document.addEventListener("DOMContentLoaded", function() {
     container.appendChild(renderer.domElement);
 
     const clock = new THREE.Clock();
+    
 
     const vertexShader = `
-        uniform float time;
-        varying vec3 vNormal;
-        void main() {
-            vNormal = normalize(normalMatrix * normal);
-            vec3 newPosition = position + normal * sin(position.x * 5.0 + time) * 0.2;
-            gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
-        }
-    `;
+    vec2 hash(vec2 p) {
+        p = vec2(dot(p, vec2(127.1, 311.7)), dot(p, vec2(269.5, 183.3)));
+        return -1.0 + 2.0 * fract(sin(p) * 0.001);
+    }
+    
+    uniform float time;
+    varying vec3 vNormal;
+    
+    void main() {
+        vNormal = normalize(normalMatrix * normal);
+        
+        // Call hash with some position or normal to affect your position variation
+        vec2 offset = hash(vNormal.xy + time*0.001); 
+        
+        // Adjust newPosition based on the offset, here x and y are affected
+        vec3 newPosition = position + 0.25*vec3(offset * 0.1, 0.0) + sin(time + position.x)*2.0 +sin(time + position.y)*0.1; // Scale as needed
+        
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
+    }
+`;
  
     const material = new THREE.ShaderMaterial({
         vertexShader,
@@ -26,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
         wireframe: true
     });
 
-    const geometry = new THREE.SphereGeometry(5, 32, 32);
+    const geometry = new THREE.SphereGeometry(4, 40, 40);
     const sphere = new THREE.Mesh(geometry, material);
     scene.add(sphere);
 
@@ -35,8 +48,8 @@ document.addEventListener("DOMContentLoaded", function() {
     function animate() {
         requestAnimationFrame(animate);
         material.uniforms.time.value = clock.getElapsedTime();
-        sphere.rotation.x += 0.01;
-        sphere.rotation.y += 0.01;
+        sphere.rotation.x += 0.005;
+        sphere.rotation.y += 0.005;
         renderer.render(scene, camera);
     }
     animate();

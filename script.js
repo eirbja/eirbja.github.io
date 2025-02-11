@@ -60,10 +60,21 @@ document.addEventListener("DOMContentLoaded", function() {
           gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
       }
     `;
+
+      // Fragment Shader
+      const fragmentShader = `
+      varying vec3 vNormal;
+      void main() {
+          // Set the color of the sphere
+          vec3 color = vec3(1, 1, 1);
+          gl_FragColor = vec4(color * abs(normalize(vNormal)), 1.0);
+      }
+    `;
   
     // Create a ShaderMaterial using the custom vertex shader and a simple uniform for time.
     const material = new THREE.ShaderMaterial({
       vertexShader,
+      fragmentShader,
       uniforms: {
         time: { value: 0.0 }
       },
@@ -108,38 +119,5 @@ document.addEventListener("DOMContentLoaded", function() {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
     });
-  
-    // ================================
-    // Intersection Observer for Background Fade
-    // ================================
-  
-    // Select the Projects section and the overlay element.
-    const projectsSection = document.querySelector("#projects");
-    const overlay = document.querySelector("#overlay");
-  
-    // Only set up the observer if both elements exist.
-    if (projectsSection && overlay) {
-      // Create an IntersectionObserver to detect when the Projects section enters/exits the viewport.
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            // If the Projects section is at least 50% visible, add the 'visible' class to the overlay.
-            if (entry.isIntersecting) {
-              overlay.classList.add("visible");
-            } else {
-              // Otherwise, remove the 'visible' class.
-              overlay.classList.remove("visible");
-            }
-          });
-        },
-        {
-          // Adjust this threshold as needed (0.5 means 50% of the section must be visible).
-          threshold: 0.6
-        }
-      );
-  
-      // Start observing the Projects section.
-      observer.observe(projectsSection);
-    }
   });
   

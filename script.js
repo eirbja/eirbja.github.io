@@ -103,8 +103,8 @@ document.addEventListener("DOMContentLoaded", function() {
       material.uniforms.time.value = clock.getElapsedTime();
   
       // Slowly rotate the sphere.
-      sphere.rotation.x += 0.005;
-      sphere.rotation.y += 0.005;
+      sphere.rotation.x += 0.003;
+      sphere.rotation.y += 0.003;
   
       // Render the scene from the perspective of the camera.
       renderer.render(scene, camera);

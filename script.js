@@ -34,33 +34,58 @@ document.addEventListener("DOMContentLoaded", function() {
       // A helper function that generates a pseudo-random 2D vector from a 2D input.
       vec2 hash(vec2 p) {
           p = vec2(dot(p, vec2(127.1, 311.7)), dot(p, vec2(269.5, 183.3)));
-          return -1.0 + 2.0 * fract(sin(p) * 0.001);
+          return -1.0 + 2.0 * fract(sin(p) * 43758.5453);
       }
-      
-      // Uniform variable for passing in time.
+
+      // Function for smooth noise.
+      float smoothNoise(vec2 p) {
+          vec2 i = floor(p);
+          vec2 f = fract(p);
+          vec2 u = f * f * (3.0 - 2.0 * f); // Smoothstep interpolation
+
+          // Get random values at the corners of the grid cell
+          float a = dot(hash(i + vec2(0.0, 0.0)), f - vec2(0.0, 0.0));
+          float b = dot(hash(i + vec2(1.0, 0.0)), f - vec2(1.0, 0.0));
+          float c = dot(hash(i + vec2(0.0, 1.0)), f - vec2(0.0, 1.0));
+          float d = dot(hash(i + vec2(1.0, 1.0)), f - vec2(1.0, 1.0));
+
+          // Interpolate between the corners
+          return mix(mix(a, b, u.x), mix(c, d, u.x), u.y);
+      }
+
+      // Variable for change time.
       uniform float time;
-      
-      // Varying variable to pass the computed normal to the fragment shader (if needed).
+
+      // Normal to the vertex.
       varying vec3 vNormal;
-      
+      varying float vNoiseFactor; // Added varying for noise intensity
+
       void main() {
           // Compute the normal in view space.
           vNormal = normalize(normalMatrix * normal);
-          
-          // Calculate an offset based on the normal and time.
-          vec2 offset = hash(vNormal.xy + time * 0.001);
-          
-          // Modify the vertex position by adding a small offset and sine-based variations.
+
+          // Add smooth noise for more pronounced but smooth jitter.
+          float noise = smoothNoise(vNormal.xy * 3.0);
+          vNoiseFactor = abs(noise); // Calculate the absolute noise intensity (0 to 1)
+
           vec3 newPosition = position 
+<<<<<<< Updated upstream
             + 0.25 * vec3(offset * 0.1, 0.0) 
             + sin(time + position.x) * 2.0 
             + sin(time + position.y) * 0.1;
           
+=======
+            + sin(time + position.x) * 2.0 
+            + sin(time + position.y) * 0.1
+            + noise * 0.3; // Add smooth noise for smoother jitter
+
+>>>>>>> Stashed changes
           // Compute the final position of the vertex.
           gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
       }
     `;
 
+<<<<<<< Updated upstream
       // Fragment Shader
       const fragmentShader = `
       varying vec3 vNormal;
@@ -68,6 +93,32 @@ document.addEventListener("DOMContentLoaded", function() {
           // Set the color of the sphere
           vec3 color = vec3(1, 1, 1);
           gl_FragColor = vec4(color * abs(normalize(vNormal)), 1.0);
+=======
+    // Fragment Shader
+    const fragmentShader = `
+      varying vec3 vNormal;
+
+      void main() {
+          vec3 baseColor = vec3(240.0 / 256.0, 30.0 / 256.0, 10.0 / 256.0);
+          vec3 secondColor = vec3(1.0, 1.0, 0.0);
+
+          // Normalize the normal vector.
+          vec3 normal = normalize(vNormal);
+
+          // Just the Z-axis.
+          vec3 viewDirection = vec3(0.0, 0.0, 1.0); 
+
+          // Calculate the dot product between the normal and the view direction to get a scalar.
+          //range is [-1, 1]
+          float dotProduct = dot(normal, viewDirection);
+
+          // Map the dot product to the range [0, 1] for interpolation.
+          float mixFactor = (dotProduct + 1.0) * 0.18;
+
+          // Interpolate between the blue and white colors based on the mix factor.
+          vec3 finalColor = mix(baseColor, secondColor, mixFactor);
+          gl_FragColor = vec4(finalColor, 1.0);
+>>>>>>> Stashed changes
       }
     `;
   

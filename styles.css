@@ -149,4 +149,44 @@ html {
     line-height: 2;
   }
 
+<<<<<<< Updated upstream
+=======
+  .gradient-layer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*background: linear-gradient(to bottom, transparent 30%, rgba(255, 255, 255, 0.8) 75%);*/
+    background: conic-gradient(transparent, transparent, rgba(247, 247, 247, 0.65), transparent, transparent),
+                linear-gradient(to bottom, transparent 30%, rgba(255, 102, 0, 0.2) 75%);
+    z-index: -1;
+  }
+  .grain-lowfrequency {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: url(#cloudy-noise-low);
+    mask-image: linear-gradient(to bottom, transparent, white); /* Fade mask */
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: -1;
+}
+.grain-highfrequency {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: url(#cloudy-noise-high);
+  mask-image: linear-gradient(to bottom, transparent, white); /* Fade mask */
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: -1;
+}
+
+
+>>>>>>> Stashed changes
   

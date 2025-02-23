@@ -52,23 +52,40 @@ document.addEventListener("DOMContentLoaded", function() {
           
           // Modify the vertex position by adding a small offset and sine-based variations.
           vec3 newPosition = position 
-            + 0.25 * vec3(offset * 0.1, 0.0) 
+            + 0.25 * vec3(offset * 0.02, 0.0) 
             + sin(time + position.x) * 2.0 
-            + sin(time + position.y) * 0.1;
+            + sin(time + position.y) * 0.5;
           
           // Compute the final position of the vertex.
           gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
       }
     `;
 
-      // Fragment Shader
-      const fragmentShader = `
-      varying vec3 vNormal;
-      void main() {
-          // Set the color of the sphere
-          vec3 color = vec3(1, 1, 1);
-          gl_FragColor = vec4(color * abs(normalize(vNormal)), 1.0);
-      }
+    // Fragment Shader
+    const fragmentShader = `
+varying vec3 vNormal;
+
+void main() {
+    vec3 blueColor = vec3(30.0 / 256.0, 70.0 / 256.0, 140.0 / 256.0);
+    vec3 whiteColor = vec3(1.0, 1.0, 1.0);
+
+    // Normalize the normal vector.
+    vec3 normal = normalize(vNormal);
+
+    // Just the Z-axis.
+    vec3 viewDirection = vec3(0.0, 0.0, 1.0); 
+
+    // Calculate the dot product between the normal and the view direction to get a scalar.
+    //range is [-1, 1]
+    float dotProduct = dot(normal, viewDirection);
+
+    // Map the dot product to the range [0, 1] for interpolation.
+    float mixFactor = (dotProduct + 1.0) * 0.25;
+
+    // Interpolate between the blue and white colors based on the mix factor.
+    vec3 finalColor = mix(blueColor, whiteColor, mixFactor);
+    gl_FragColor = vec4(finalColor, 1.0);
+}
     `;
   
     // Create a ShaderMaterial using the custom vertex shader and a simple uniform for time.

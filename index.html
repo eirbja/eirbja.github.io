@@ -10,6 +10,8 @@
   <script defer src="script.js"></script>
 </head>
 <body id="home">
+
+  <!-- menu -->
   <nav>
     <ul>
       <li><a href="#home"><b>Home</b></a></li>
@@ -18,7 +20,7 @@
     </ul>
   </nav>
   
-<!-- The Three.js canvas is our background -->
+<!-- The Three.js canvas background -->
   <div id="canvas-container"></div>
 
   <main>
@@ -29,7 +31,7 @@
     <!-- Section for CV -->
     <section id="cv">
       <h2>CV</h2>
-      <img src="Eirik_B_Jahr_CV.svg" width="80%" height="800px" alt="Your SVG Description"/>
+      <img src="Eirik_B_Jahr_CV.svg" width="80%" height="800px" alt="Eirik's CV"/>
     </section>
 
     <section id="projects">
@@ -64,5 +66,25 @@
       </div>
     </section>
   </main>
+    <!-- SVG for noise -->
+    <svg width="0" height="0">
+      <filter id="cloudy-noise-low">
+        <feTurbulence type="fractalNoise" baseFrequency="0.002" numOctaves="9"/>
+        <feColorMatrix type="saturate" values="0" />
+      </filter>
+    </svg>
+    <svg width="0" height="0">
+      <filter id="cloudy-noise-high">
+        <feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="4"/>
+        <feColorMatrix type="saturate" values="0" />
+      </filter>
+    </svg>
+    <!-- div to contain grainy noise -->
+    <div class="gradient-layer">
+      <div class="grain-lowfrequency">
+      </div>
+      <div class="grain-highfrequency">
+      </div>
+    </div>
 </body>
 </html>

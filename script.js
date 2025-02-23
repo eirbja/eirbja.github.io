@@ -80,7 +80,7 @@ void main() {
     float dotProduct = dot(normal, viewDirection);
 
     // Map the dot product to the range [0, 1] for interpolation.
-    float mixFactor = (dotProduct + 1.0) * 0.25;
+    float mixFactor = (dotProduct + 1.0) * 0.18;
 
     // Interpolate between the blue and white colors based on the mix factor.
     vec3 finalColor = mix(blueColor, whiteColor, mixFactor);

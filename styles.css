@@ -149,8 +149,6 @@ html {
     line-height: 2;
   }
 
-<<<<<<< Updated upstream
-=======
   .gradient-layer{
     position: absolute;
     top: 0;
@@ -185,8 +183,4 @@ html {
   opacity: 0.6;
   pointer-events: none;
   z-index: -1;
-}
-
-
->>>>>>> Stashed changes
-  
+}  

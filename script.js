@@ -68,32 +68,16 @@ document.addEventListener("DOMContentLoaded", function() {
           float noise = smoothNoise(vNormal.xy * 3.0);
           vNoiseFactor = abs(noise); // Calculate the absolute noise intensity (0 to 1)
 
-          vec3 newPosition = position 
-<<<<<<< Updated upstream
-            + 0.25 * vec3(offset * 0.1, 0.0) 
-            + sin(time + position.x) * 2.0 
-            + sin(time + position.y) * 0.1;
-          
-=======
+          vec3 newPosition = position
             + sin(time + position.x) * 2.0 
             + sin(time + position.y) * 0.1
             + noise * 0.3; // Add smooth noise for smoother jitter
 
->>>>>>> Stashed changes
           // Compute the final position of the vertex.
           gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
       }
     `;
 
-<<<<<<< Updated upstream
-      // Fragment Shader
-      const fragmentShader = `
-      varying vec3 vNormal;
-      void main() {
-          // Set the color of the sphere
-          vec3 color = vec3(1, 1, 1);
-          gl_FragColor = vec4(color * abs(normalize(vNormal)), 1.0);
-=======
     // Fragment Shader
     const fragmentShader = `
       varying vec3 vNormal;
@@ -118,7 +102,6 @@ document.addEventListener("DOMContentLoaded", function() {
           // Interpolate between the blue and white colors based on the mix factor.
           vec3 finalColor = mix(baseColor, secondColor, mixFactor);
           gl_FragColor = vec4(finalColor, 1.0);
->>>>>>> Stashed changes
       }
     `;
   

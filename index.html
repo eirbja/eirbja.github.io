@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="shortcut icon" type="image/x-icon" href="favicon_red.ico?">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eirik B. Jahr - Portfolio</title>
@@ -10,6 +10,8 @@
   <script defer src="script.js"></script>
 </head>
 <body id="home">
+
+  <!-- menu -->
   <nav>
     <ul>
       <li><a href="#home"><b>Home</b></a></li>
@@ -18,7 +20,7 @@
     </ul>
   </nav>
   
-<!-- The Three.js canvas is our background -->
+<!-- The Three.js canvas background -->
   <div id="canvas-container"></div>
 
   <main>
@@ -62,7 +64,28 @@
             <b>Capacity and Games</b>: 
           </p>
       </div>
+
     </section>
   </main>
+    <!-- SVG for noise -->
+    <svg width="0" height="0">
+      <filter id="cloudy-noise-low">
+        <feTurbulence type="fractalNoise" baseFrequency="0.002" numOctaves="9"/>
+        <feColorMatrix type="saturate" values="0" />
+      </filter>
+    </svg>
+    <svg width="0" height="0">
+      <filter id="cloudy-noise-high">
+        <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="4"/>
+        <feColorMatrix type="saturate" values="0" />
+      </filter>
+    </svg>
+    <!-- div to contain grainy noise -->
+    <div class="gradient-layer">
+      <div class="grain-lowfrequency">
+      </div>
+      <div class="grain-highfrequency">
+      </div>
+    </div>
 </body>
 </html>

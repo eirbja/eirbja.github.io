@@ -1,0 +1,90 @@
+.project_container {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 8vh;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 30px;
+  }
+  
+  @media (max-width: 900px){
+    .project_container{
+      grid-template-columns: repeat(2,1fr);
+    }
+  }
+  @media (max-width: 700px){
+    .project_container{
+      grid-template-columns: repeat(1,1fr);
+    }
+  }
+  
+  @keyframes appear{
+    from{
+      opacity: 0.1;
+      scale: 0.9;
+    }
+    to{
+      opacity: 1;
+      scale: 1;
+    }
+  }
+  
+  .project{
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry cover 25%;
+  
+    display: flex;
+    position: relative;
+    border-radius: 5px;
+  
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
+    box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  .project:hover {
+    box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05, 1.05);
+  }
+  
+  .project  img {
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  /*should use persentage*/
+  .project div{
+    opacity: 0;
+    z-index: 2;
+    background-color: rgba(39, 34, 58, 0.862);
+    padding: 40% 10% 10% 10%;
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    transition: 0.5s;
+  }
+  
+  /*HOVER DOES NOT WORK WITH TUCH - TODO - make this an animation mabye that is triggered with onClick*/
+  .project div:hover {
+    opacity: 1;
+    box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05, 1.05);
+  }
+  
+  .empty {
+    width: 100%;
+    margin-top: 3rem;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .empty h2 {
+    font-size: 1.25rem;
+    color: #f9d3b4;
+    font-family: var(--font-raleway);
+  }

@@ -1,6 +1,8 @@
 # React JSON-Based Website
 
-This project is a website built using React that leverages a JSON file for easy content updates.
+The website is designed to be modular and dynamic. The user's name and project details are stored in a JSON file, making it simple to update and maintain. This approach minimizes code changes and streamlines the process of customizing the site.
+
+
 
 ## Table of Contents
 
@@ -11,7 +13,7 @@ This project is a website built using React that leverages a JSON file for easy 
 
 ## Overview
 
-The website is designed to be modular and dynamic. The user's name and project details are stored in a JSON file, making it simple to update and maintain. This approach minimizes code changes and streamlines the process of customizing the site.
+This guide provides step-by-step instructions on how to create your own personalized website by copying and customizing this project.
 
 ## Getting Started
 
@@ -20,25 +22,50 @@ The website is designed to be modular and dynamic. The user's name and project d
 - [Node.js](https://nodejs.org/) installed on your machine. 
 - npm (comes with Node.js) as your package manager.
 
-### Installation
+### Setup
 
 1. **Clone the Repository:**
 
-```bash
-git clone https://github.com/eirbja/eirbja.github.io.git
-```
+    ```bash
+    git clone https://github.com/eirbja/eirbja.github.io.git
+    ```
 
-2. **Install Dependencies:**
+2. **Remove the .git Folder**
+    ```bash
+    cd SOURCE-REPO
+    rm -rf .git
+    ```
 
-```bash
-npm install
-```
+3. **Create new GitHub Repository**
 
-3. **Run the Development Server:**
+    1. Go to [GitHub](https://github.com/).
+    2. Click the **"+"** icon in the top right and select **"New repository"**.
+    3. Enter **username.github.io** as the Repository name. (🚨Remeber to change `username`🚨) 
+    4. Press **Create Repository**.
 
-```bash
-npm start
-```
+3. **Create git repository and add files:**
+
+    (🚨Remeber to change `username`🚨)
+
+    ```bash
+    git init
+    git remote add origin https://github.com/username/username.github.io.git
+    git add .
+    git commit -m "Initial commit"
+    git push -u origin main
+    ```
+
+5. **Install Dependencies:**
+
+    ```bash
+    npm install
+    ```
+
+6. **Run the Development Server:**
+
+    ```bash
+    npm start
+    ```
 
 ## Updating Content
 
@@ -92,8 +119,8 @@ All new files, such as images or documents, should be added to the `public` fold
 ```
 public/
 ├── sample_image.jpg      # Example project image
-├── my_CV.svg             # Your CV file
-└── index.html
+└── my_CV.svg             # Your CV file
+└── favicon.ico
 ```
 When adding new files, ensure they are properly referenced in the JSON file to display them correctly on the website. 
 #### important 

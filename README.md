@@ -25,19 +25,19 @@ The website is designed to be modular and dynamic. Content such as the user's na
 
 1. **Clone the Repository:**
 
-    ```Bash
+    ```bash
     git clone https://github.com/eirbja/eirbja.github.io.git
     ´´´
 
 2. **Install Dependencies:**
 
-    ```Bash
+    ```bash
     npm install
     ´´´
 
 2. **Run the Development Server:**
 
-    ```Bash
+    ```bash
     npm start
     ´´´
 

@@ -1,12 +1,30 @@
-# React + Vite
+# React JSON-Based Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a website built using React that leverages a JSON file for easy content updates. The design allows you to modify website details without changing the code directly—simply update the JSON file.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Overview](#overview)
+- [Getting Started](#getting-started)
+- [Updating the Content](#updating-the-content)
+- [Building for Production](#building-for-production)
+- [License](#license)
 
-## Expanding the ESLint configuration
+## Overview
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The website is designed to be modular and dynamic. Content such as the user's name and project details are stored in a JSON file, making it simple to update and maintain. This approach minimizes code changes and streamlines the process of customizing the site.
+
+## Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) installed on your machine.
+- npm (comes with Node.js) or [Yarn](https://yarnpkg.com/) as your package manager.
+
+### Installation
+
+1. **Clone the Repository:**
+
+   ```bash
+   git clone https://github.com/yourusername/your-repo-name.git
+   cd your-repo-name

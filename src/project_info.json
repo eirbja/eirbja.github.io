@@ -1,67 +1,70 @@
 
-[
-    {
-        "title": "Game console",
-        "description": "Verry Game console",
-        "image": "/sample_image.jpg",
-        "imageH": 380
-    },
-    {
-        "title": "Autonomous Drone",
-        "description": "Verry cool Autonomous Drone",
-        "image": "N/A",
-        "imageH": 300
-    }
-    ,
-    {
-        "title": "Game console",
-        "description": "Verry Game console",
-        "image": "/sample_image.jpg",
-        "imageH": 380
-    },
-    {
-        "title": "Autonomous Drone",
-        "description": "Verry cool Autonomous Drone",
-        "image": "N/A",
-        "imageH": 300
-    }
-    ,
-    {
-        "title": "Game console",
-        "description": "Verry Game console",
-        "image": "/sample_image.jpg",
-        "imageH": 380
-    },
-    {
-        "title": "Autonomous Drone",
-        "description": "Verry cool Autonomous Drone",
-        "image": "N/A",
-        "imageH": 300
-    }
-    ,
-    {
-        "title": "Game console",
-        "description": "Verry Game console",
-        "image": "/sample_image.jpg",
-        "imageH": 380
-    },
-    {
-        "title": "Autonomous Drone",
-        "description": "Verry cool Autonomous Drone",
-        "image": "N/A",
-        "imageH": 300
-    }
-    ,
-    {
-        "title": "Autonomous Drone",
-        "description": "Verry cool Autonomous Drone",
-        "image": "N/A",
-        "imageH": 300
-    },
-    {
-        "title": "Game console",
-        "description": "Verry Game console",
-        "image": "/sample_image.jpg",
-        "imageH": 380
-    }
-]
+{
+    "name": "Eirik B. Jahr",
+    "projects": [
+        {
+            "title": "Game console",
+            "description": "Verry Game console",
+            "image": "/sample_image.jpg",
+            "imageH": 380
+        },
+        {
+            "title": "Autonomous Drone",
+            "description": "Verry cool Autonomous Drone",
+            "image": "N/A",
+            "imageH": 300
+        }
+        ,
+        {
+            "title": "Game console",
+            "description": "Verry Game console",
+            "image": "/sample_image.jpg",
+            "imageH": 380
+        },
+        {
+            "title": "Autonomous Drone",
+            "description": "Verry cool Autonomous Drone",
+            "image": "N/A",
+            "imageH": 300
+        }
+        ,
+        {
+            "title": "Game console",
+            "description": "Verry Game console",
+            "image": "/sample_image.jpg",
+            "imageH": 380
+        },
+        {
+            "title": "Autonomous Drone",
+            "description": "Verry cool Autonomous Drone",
+            "image": "N/A",
+            "imageH": 300
+        }
+        ,
+        {
+            "title": "Game console",
+            "description": "Verry Game console",
+            "image": "/sample_image.jpg",
+            "imageH": 380
+        },
+        {
+            "title": "Autonomous Drone",
+            "description": "Verry cool Autonomous Drone",
+            "image": "N/A",
+            "imageH": 300
+        }
+        ,
+        {
+            "title": "Autonomous Drone",
+            "description": "Verry cool Autonomous Drone",
+            "image": "N/A",
+            "imageH": 300
+        },
+        {
+            "title": "Game console",
+            "description": "Verry Game console",
+            "image": "/sample_image.jpg",
+            "imageH": 380
+        }
+    ]
+}

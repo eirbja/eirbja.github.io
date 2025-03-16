@@ -128,3 +128,8 @@ public/
 ```
 
 
+## Deploy
+
+### Homepage
+
+In the package.json file, change the to "homepage": "https://username.github.io/". Where again "username" needs to be set to your github username.

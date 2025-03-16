@@ -116,13 +116,12 @@ Make sure to follow the JSON structure when adding or modifying.
 All new files, such as images or documents, should be added to the `public` folder. This ensures they are accessible to the website and can be referenced in the JSON file or other parts of the project.
 
 ### Example Structure:
+🚨 **Important!** Your cv file has to be called my_CV.svg (and be of the svg format)
 ```
 public/
 ├── sample_image.jpg      # Example project image
 └── my_CV.svg             # Your CV file
 └── favicon.ico
 ```
-When adding new files, ensure they are properly referenced in the JSON file to display them correctly on the website. 
-#### important 
-Your cv file has to be called my_CV.svg (and be of the svg format)
+
 

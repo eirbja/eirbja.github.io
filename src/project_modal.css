@@ -21,6 +21,12 @@
     position: relative;
     overflow-x: hidden;
     overflow-y: scroll;
+    -ms-overflow-style: none;  /* hide scrollbar */
+    scrollbar-width: none;  /* hide scrollbar */
+}
+
+.modal_content::-webkit-scrollbar {
+    display: none;/* hide scrollbar*/
 }
 
 .modal_content h3{

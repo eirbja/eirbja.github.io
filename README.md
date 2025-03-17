@@ -26,13 +26,15 @@ This guide provides step-by-step instructions on how to create your own personal
 
 1. **Clone the Repository:**
 
+    To do this you need to have git installed.
     ```bash
     git clone https://github.com/eirbja/eirbja.github.io.git
     ```
 
 2. **Remove the .git Folder**
+
+    You need to be in the folder where the files you got when cloning the repository is.
     ```bash
-    cd SOURCE-REPO
     rm -rf .git
     ```
 
@@ -40,12 +42,12 @@ This guide provides step-by-step instructions on how to create your own personal
 
     1. Go to [GitHub](https://github.com/).
     2. Click the **"+"** icon in the top right and select **"New repository"**.
-    3. Enter **username.github.io** as the Repository name. (🚨Remeber to change `username`🚨) 
+    3. Enter **username.github.io** as the Repository name. (🚨Remember to change `username`🚨) 
     4. Press **Create Repository**.
 
-3. **Create git repository and add files:**
+4. **Create git repository and add files:**
 
-    (🚨Remeber to change `username`🚨)
+    (🚨Remember to change `username`🚨)
 
     ```bash
     git init
@@ -61,31 +63,25 @@ This guide provides step-by-step instructions on how to create your own personal
     npm install
     ```
 
-6. **Run the Development Server:**
-
-    ```bash
-    npm start
-    ```
-
 ## Updating Content
 
 The website content is driven by a JSON file, making it easy to update your details without touching the React code.
 
 ### Example JSON Snippet
 
-```bash
+```json
 {
   "name": "John Doe",
   "projects": [
     {
       "title": "Game console",
-      "description": "Verry Game console",
+      "description": "Very Game console",
       "image": "/sample_image.jpg",
       "imageH": 380
     },
     {
       "title": "Autonomous Drone",
-      "description": "Verry cool Autonomous Drone",
+      "description": "Very cool Autonomous Drone",
       "image": "N/A",
       "imageH": 300
     }
@@ -130,6 +126,26 @@ public/
 
 ## Deploy
 
-### Homepage
+1. **Homepage:**
 
-In the package.json file, change the to "homepage": "https://username.github.io/". Where again "username" needs to be set to your github username.
+    In the package.json file, change the homapage to be ```"homepage": "https://username.github.io/"```. Where again "username" needs to be set to your github username.
+
+2. **GitHub Pages:**
+    ```bash
+    npm install gh-pages
+    ```
+
+3. **NPM Deploy:**
+    ```bash
+    npm run deploy
+    ``` 
+
+### Check if it works
+
+If this does not work go to the github repo on the github website. Click settings in the top bar, and then pages on the left. URL should look like this: https://github.com/username/username.github.io/settings/pages
+
+Find: "***Branch***
+
+Your GitHub Pages site is currently being built from the gh-pages branch."
+
+And change from main to ```gh-pages``` and ```/Root.```

@@ -1,12 +1,12 @@
 import React from 'react';
-import Popup from './project_modal.jsx';
+import Modal from './project_modal.jsx';
 import { useState } from 'react';
 
 const Projects = ({ project }) => {
-    const [Modal, setModal] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     const changeModal = () => {
-        setModal(!Modal);
+        setShowModal(!showModal);
     };
 
     return (
@@ -25,7 +25,8 @@ const Projects = ({ project }) => {
                     <span>{project.briefDescription}</span>
                 </div>
             </div>
-            {Modal && <Popup project={project} changeModal={changeModal} />}
+            {showModal && <Modal project={project} changeModal={changeModal} /> //shows popup when Modal is true.
+            }
         </>
     );
 };

@@ -6,7 +6,7 @@ const Modal = ({ project, changeModal }) => {
                     x
                 </button>
                 <h3>{project.title}</h3>
-                    {project.detailedDescription.map((line, index) => ( 
+                    {project.detailedDescription.map((line, index) => (//goes through the list
                         <p key={index}>{line}</p>
                     ))}
                 <img

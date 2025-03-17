@@ -15,11 +15,10 @@ function App() {
     <>
       <div id="homeNav"></div>
       <Navigation/>
-      {/* - TODO - should  make a menue to sort the projects, mabye, not that many projects yet*/}
 
       <div className='title'>
           <p>{data.name}</p>
-          {/*interactive backround*/}
+          {/* -TODO- interactive backround*/}
       </div>
 
       <hr id="projectsNav" className="separator"/>
@@ -29,7 +28,7 @@ function App() {
         projectData?.length > 0
           ?(
             <div className='project_container'>
-            {projectData.map((project_instant, index) => (
+            {projectData.map((project_instant, index) => (//loops through the projects and displays them
               <Projects key={index} project={project_instant}/>
             ))}
             </div>

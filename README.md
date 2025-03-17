@@ -142,6 +142,8 @@ public/
 
 ### Check if it works
 
+To check you website, go to ```https://username.github.io/```. "username" needs to be set to your github username.
+
 If this does not work go to the github repo on the github website. Click settings in the top bar, and then pages on the left. URL should look like this: https://github.com/username/username.github.io/settings/pages
 
 Find: "***Branch***

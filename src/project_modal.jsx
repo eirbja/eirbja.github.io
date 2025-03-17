@@ -9,7 +9,6 @@ const Modal = ({ project, changeModal }) => {
                     {project.detailedDescription.map((line, index) => ( 
                         <p key={index}>{line}</p>
                     ))}
-                    <p>{project.detailedDescription.join(<br />)}</p>
                 <img
                     src={project.image !== 'N/A' ? project.image : 'https://placehold.co/400x300'}
                     alt={project.title}

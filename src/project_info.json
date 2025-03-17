@@ -1,67 +1,89 @@
 
-[
-    {
-        "title": "Game console",
-        "description": "Verry Game console",
-        "image": "/sample_image.jpg",
-        "imageH": 380
-    },
-    {
-        "title": "Autonomous Drone",
-        "description": "Verry cool Autonomous Drone",
-        "image": "N/A",
-        "imageH": 300
-    }
-    ,
-    {
-        "title": "Game console",
-        "description": "Verry Game console",
-        "image": "/sample_image.jpg",
-        "imageH": 380
-    },
-    {
-        "title": "Autonomous Drone",
-        "description": "Verry cool Autonomous Drone",
-        "image": "N/A",
-        "imageH": 300
-    }
-    ,
-    {
-        "title": "Game console",
-        "description": "Verry Game console",
-        "image": "/sample_image.jpg",
-        "imageH": 380
-    },
-    {
-        "title": "Autonomous Drone",
-        "description": "Verry cool Autonomous Drone",
-        "image": "N/A",
-        "imageH": 300
-    }
-    ,
-    {
-        "title": "Game console",
-        "description": "Verry Game console",
-        "image": "/sample_image.jpg",
-        "imageH": 380
-    },
-    {
-        "title": "Autonomous Drone",
-        "description": "Verry cool Autonomous Drone",
-        "image": "N/A",
-        "imageH": 300
-    }
-    ,
-    {
-        "title": "Autonomous Drone",
-        "description": "Verry cool Autonomous Drone",
-        "image": "N/A",
-        "imageH": 300
-    },
-    {
-        "title": "Game console",
-        "description": "Verry Game console",
-        "image": "/sample_image.jpg",
-        "imageH": 380
-    }
-]
+{
+    "name": "Eirik B. Jahr",
+    "projects": [
+        {
+            "title": "Game console",
+            "briefDescription": "Simple game console made from scratch",
+            "detailedDescription": ["The console was created as part of a student competition named shitty party games. It can host up to 6 players and it be used to play multiple different Reactions games and Memmory.", 
+                "It features a 3D printed shell and buttons, integrating seven segment display to displaying game modes and more LEDs for enhancing interactivity. There are 6 buttons, so there can be from 2 to 6 players playing simultaniously.",
+                "The design is a bit 'shitty' on purpose as to fit the category, and it gives ut some charm."
+            ],
+            "image": "/sample_image.jpg",
+            "imageH": 380
+        },
+        {
+            "title": "Autonomous Drone",
+            "briefDescription": "Verry cool Autonomous Drone",
+            "detailedDescription": [
+                "The autonomus drone is a project i am working on right now. It will be able to navigate navigate through the world without colliding into objects.",
+                "It has stereo cameras and will use computer vision algorithms to construct a course 3D reconstruction of the world around it."
+            ],
+            "image": "N/A",
+            "imageH": 300
+        }
+        ,
+        {
+            "title": "Game console",
+            "briefDescription": "Simple game console made from scratch",
+            "detailedDescription": ["The console was created as part of a student competition named shitty party games. It can host up to 6 players and it be used to play multiple different Reactions games and Memmory.", 
+                "It features a 3D printed shell and buttons, integrating seven segment display to displaying game modes and more LEDs for enhancing interactivity. There are 6 buttons, so there can be from 2 to 6 players playing simultaniously.",
+                "The design is a bit 'shitty' on purpose as to fit the category, and it gives ut some charm."
+            ],
+            "image": "/sample_image.jpg",
+            "imageH": 380
+        },
+        {
+            "title": "Autonomous Drone",
+            "briefDescription": "Verry cool Autonomous Drone",
+            "detailedDescription": [
+                "The autonomus drone is a project i am working on right now. It will be able to navigate navigate through the world without colliding into objects.",
+                "It has stereo cameras and will use computer vision algorithms to construct a course 3D reconstruction of the world around it."
+            ],
+            "image": "N/A",
+            "imageH": 300
+        }
+        ,
+        {
+            "title": "Autonomous Drone",
+            "briefDescription": "Verry cool Autonomous Drone",
+            "detailedDescription": [
+                "The autonomus drone is a project i am working on right now. It will be able to navigate navigate through the world without colliding into objects.",
+                "It has stereo cameras and will use computer vision algorithms to construct a course 3D reconstruction of the world around it."
+            ],
+            "image": "N/A",
+            "imageH": 300
+        },
+        {
+            "title": "Game console",
+            "briefDescription": "Simple game console made from scratch",
+            "detailedDescription": ["The console was created as part of a student competition named shitty party games. It can host up to 6 players and it be used to play multiple different Reactions games and Memmory.", 
+                "It features a 3D printed shell and buttons, integrating seven segment display to displaying game modes and more LEDs for enhancing interactivity. There are 6 buttons, so there can be from 2 to 6 players playing simultaniously.",
+                "The design is a bit 'shitty' on purpose as to fit the category, and it gives ut some charm."
+            ],
+            "image": "/sample_image.jpg",
+            "imageH": 380
+        }
+        ,
+        {
+            "title": "Game console",
+            "briefDescription": "Simple game console made from scratch",
+            "detailedDescription": ["The console was created as part of a student competition named shitty party games. It can host up to 6 players and it be used to play multiple different Reactions games and Memmory.", 
+                "It features a 3D printed shell and buttons, integrating seven segment display to displaying game modes and more LEDs for enhancing interactivity. There are 6 buttons, so there can be from 2 to 6 players playing simultaniously.",
+                "The design is a bit 'shitty' on purpose as to fit the category, and it gives ut some charm."
+            ],
+            "image": "/sample_image.jpg",
+            "imageH": 380
+        },
+        {
+            "title": "Autonomous Drone",
+            "briefDescription": "Verry cool Autonomous Drone",
+            "detailedDescription": [
+                "The autonomus drone is a project i am working on right now. It will be able to navigate navigate through the world without colliding into objects.",
+                "It has stereo cameras and will use computer vision algorithms to construct a course 3D reconstruction of the world around it."
+            ],
+            "image": "N/A",
+            "imageH": 300
+        }
+    ]
+}

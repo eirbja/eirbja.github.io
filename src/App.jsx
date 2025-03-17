@@ -1,12 +1,14 @@
-import { useState } from 'react'
+import React from 'react';
 import './App.css'
 import './projects.css'
+import './project_modal.css'
 import Navigation from './navigation.jsx'
 import Projects from './projects.jsx'
 
-import projectData from './project_info.json'
+import data from './project_info.json'
 import CV from "/my_CV.svg"
 
+const projectData = data.projects
 
 function App() {
   return (
@@ -15,20 +17,16 @@ function App() {
       <Navigation/>
       {/* - TODO - should  make a menue to sort the projects, mabye, not that many projects yet*/}
 
-      {/* - TODO - videos, that play when you hover.*/}
-
       <div className='title'>
-          <p>Eirik B. Jahr</p>
+          <p>{data.name}</p>
           {/*interactive backround*/}
       </div>
 
-
-      {/*button that scrolls down*/}
       <hr id="projectsNav" className="separator"/>
       
 
       {
-        projectData?.length >0
+        projectData?.length > 0
           ?(
             <div className='project_container'>
             {projectData.map((project_instant, index) => (
@@ -44,9 +42,8 @@ function App() {
       }
       <hr id="cvNav" className="separator"/>
 
-
       <div className='CV_container'>
-        <img src={CV} alt="My CV" />
+        <img src={CV} alt={data.name+ "'s CV"}/>
       </div>
 
     </>
